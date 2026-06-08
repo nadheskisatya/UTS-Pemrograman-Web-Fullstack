@@ -1,0 +1,23 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    public function up(): void
+    {
+        Schema::create('transaksi', function (Blueprint $table) {
+            $table->id('id_transaksi');
+            $table->decimal('uang_pelanggan', 12, 2);
+            $table->decimal('total_harga', 12, 2);
+            $table->decimal('kembalian', 12, 2);
+            $table->timestamps(); // created_at & updated_at
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('transaksi');
+    }
+};
